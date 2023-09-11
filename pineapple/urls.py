@@ -6,6 +6,11 @@ from django.conf.urls.static import static
 app_name = "pineapple"
 
 urlpatterns = [
+    #AH/order-urls
+    path('order-list/',views.order_list_view,name='order-list'),
+    path('order-detail/<int:pk>',views.order_detail_view,name='order-detail'),
+    path('order-create/',views.order_create_view,name='order-create'),
+    path('order-update/<int:pk>/',views.order_update_view,name='order-update'),
     
 ]
 
