@@ -9,6 +9,7 @@ urlpatterns = [
     # AK/seller-urls
     path('seller/', views.seller_list_view, name='seller-list'),
     path('seller-create/', views.seller_create_view, name='seller-create'),
+    path('seller/<str:certificate_code>/',views.seller_detail_view, name='seller-detail'),
     # AH/order-urls
     path('order-list/', views.order_list_view, name='order-list'),
     path('order-detail/<int:pk>', views.order_detail_view, name='order-detail'),
