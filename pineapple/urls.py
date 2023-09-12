@@ -6,6 +6,10 @@ from django.conf.urls.static import static
 app_name = "pineapple"
 
 urlpatterns = [
+    
+     # AJ/subscription-urls
+    path('subscription-create/',views.views_subscription.subscription_create_view,name="subscription-create"),
+    
     # AK/seller-urls
     path('seller/', views.seller_list_view, name='seller-list'),
     path('seller-create/', views.seller_create_view, name='seller-create'),
