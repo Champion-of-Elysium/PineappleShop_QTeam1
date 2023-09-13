@@ -1,5 +1,6 @@
 from django import forms
-from .models import Seller
+from .models import *
+
 
 # AH/seller-form
 class SellerForm(forms.ModelForm):
@@ -19,10 +20,23 @@ class SellerForm(forms.ModelForm):
             raise forms.ValidationError("حروف گواهینامه باید حروف بزرگ باشد.")
         return certificate_code
 
-class PineappleForm:
-    pass
 
-# Kia/Order-Form
+# IDA/pineapple-form
+class PineappleForm(forms.ModelForm):
+    class Meta:
+        model = Pineapple
+        fields = '__all__'
+
+    def clean_price_toman(self):
+        price = self.cleaned_data.get('price_toman')
+        if price < 1000:
+            raise forms.ValidationError("قیمت نباید کمتر از هزار تومان باشد.")
+        elif price > 1000000:
+            raise forms.ValidationError("قیمت نباید از یک میلیون تومان بیشتر باشد.")
+        return price
+
+
+# Kia/order-Form
 class OrderForm:
     class Meta:
         model = Order
@@ -34,7 +48,8 @@ class OrderForm:
             raise forms.ValidationError("۱۰۰ کیلو آناناس میخوای چیکار؟ مشکل داری؟")
         return weight
 
-# AK/Subscription-form
+
+# AK/subscription-form
 class SubscriptionForm(forms.ModelForm):
     class Meta:
         model = Subscription
@@ -47,6 +62,7 @@ class SubscriptionForm(forms.ModelForm):
                 'شماره تلفن اشتباه است. شماره تلفن باید ۱۱ رقم باشد و با ۰۹ شروع شود.')
 
         return phone_number
+
 
 class CommentForm:
     pass
