@@ -2,7 +2,31 @@
 {% load static %}
 
 
-{% block title %}<!-- Add your Title Here -->{% endblock title %}
+{% block title %}لیست فروشندگان{% endblock title %}
 
-<!-- Add your Content Here -->
-{% block content %}{% endblock content %}
+
+{% block content %}
+<h1>List of sellers</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Sellers Name</th>
+      <th>Certificate Code</th>
+      <th>20 Characters from Sellers Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for seller in sellers %}
+    <tr>
+      <td>{{ seller.name }}</td>
+      <td>{{ seller.certificate_code }}</td>
+      <td>{{ seller.address|slice:":20"  }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="3">هیج فروشنده ای وجود ندارد.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}
