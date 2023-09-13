@@ -22,8 +22,17 @@ class SellerForm(forms.ModelForm):
 class PineappleForm:
     pass
 
+# Kia/Order-Form
 class OrderForm:
-    pass
+    class Meta:
+        model = Order
+        fields = "__all__"
+
+    def clean_weight_kg(self):
+        weight = self.cleaned_data.get("weight_kg")
+        if weight > 100:
+            raise forms.ValidationError("۱۰۰ کیلو آناناس میخوای چیکار؟ مشکل داری؟")
+        return weight
 
 class SubscriptionForm:
     pass
