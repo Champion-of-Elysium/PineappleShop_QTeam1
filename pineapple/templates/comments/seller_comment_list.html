@@ -2,7 +2,37 @@
 {% load static %}
 
 
-{% block title %}<!-- Add your Title Here -->{% endblock title %}
+{% block title %}لیست نظرات فروشنده{% endblock title %}
 
 <!-- Add your Content Here -->
-{% block content %}{% endblock content %}
+{% block content %}
+
+
+
+<table>
+    <thead>
+        
+        <tr>
+            <th>Name</th>
+            <th>seller name</th>
+            <th>text</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        
+        {%for comment in comments %}
+            <tr>
+                <td>{{comment.name}}</td>
+                <td>{{seller.name}}</td>
+                <td>{{comment.text}}</td>
+
+            </tr>
+            
+        {%endfor%}
+    </tbody>        
+</table> 
+
+   
+
+{% endblock content %}
