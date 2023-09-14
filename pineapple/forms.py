@@ -37,7 +37,7 @@ class PineappleForm(forms.ModelForm):
 
 
 # Kia/order-Form
-class OrderForm:
+class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = "__all__"
