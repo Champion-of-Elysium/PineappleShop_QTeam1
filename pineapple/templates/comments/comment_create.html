@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block title %}
@@ -6,4 +7,17 @@
 {% endblock title %}
 
 <!-- Add your Content Here -->
-{% block content %}{% endblock content %}
+{% block content %}
+
+
+<form action = "" method = "post">
+
+	{% csrf_token %}
+	
+	{{ form.as_p }}
+	
+	<input type="submit" value=send">
+
+</form>
+
+{% endblock content %}
