@@ -49,14 +49,38 @@ class TemplateTestCase(TestCase):
 
     # AH/Pineapple
     def test_pineapple_update(self):
-        response = self.client.get(reverse('pineapple:pineapple-update'))
+        response = self.client.get(reverse('pineapple:pineapple-update',args=[self.pineapple.pk]))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'بروزرسانی آناناس')
         self.assertContains(response, 'submit')
-
+    
     def test_pineapple_detail(self): 
         response=self.client.get(reverse('pineapple:pineapple-detail', args=[self.pineapple.pk]))  
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'صفحه‌ی داخلی آناناس')
-        self.assertContains(response, '<strong>قیمت هر آناناس: </strong>{self.pineapple.price_toman}</p>')
-        self.assertContains(response, '<strong>کد گواهی فروشنده‌ی این آناناس: </strong>{self.pineapple.seller.certificate_code}</p>')
+        self.assertContains(response, self.pineapple.price_toman)
+        self.assertContains(response, self.pineapple.seller.certificate_code)        
+
+
+    #AK/Order
+    def test_order_list(self):
+        response = self.client.get(reverse('pineapple:order-list'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "لیست سفارشات")
+        self.assertContains(response, self.order.pineapple.seller.name)
+        self.assertContains(response, self.order.name)
+        self.assertContains(response, self.order.weight_kg)
+ 
+    def test_order_detail(self):
+        response = self.client.get(reverse('pineapple:order-detail',args=[self.order.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "صفحه داخلی سفارش")
+        self.assertContains(response, self.order.pineapple.seller.name)
+        self.assertContains(response, self.order.name)
+        self.assertContains(response, self.order.weight_kg)
+
+    def test_order_create(self):
+        response = self.client.get(reverse('pineapple:order-create'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response,"ثبت سفارش")
+        self.assertContains(response,"submit")
