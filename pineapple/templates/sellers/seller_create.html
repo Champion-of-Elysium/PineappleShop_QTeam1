@@ -4,10 +4,10 @@
 {% block title %}ساخت فروشنده آناناس{% endblock title %}
 
 {% block content %}
-<h1>Making a pineapple seller</h1>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Create Seller</button>
+<form method = "post">
+	<h1>ساخت فروشنده آناناس</h1>
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit">افزودن</button>
 </form>
 {% endblock content %}

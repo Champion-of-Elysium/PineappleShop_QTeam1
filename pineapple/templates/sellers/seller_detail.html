@@ -4,10 +4,8 @@
 {% block title %}صفحه تکی فروشنده{% endblock title %}
 
 {% block content %}
-<h1>Single seller page</h1>
-<div>
-  <h2>Name: {{ seller.name }}</h2>
-  <p>Certificate Code: {{ seller.certificate_code }}</p>
-  <p>Address: {{ seller.address }}</p>
-</div>
+    <h1>صفحه تکی فروشنده</h1>
+    <p><strong>نام آناناس فروش: </strong>{{ seller.name }}</p>
+    <p><strong>کد گواهی کسب: </strong>{{ seller.certificate_code }}</p>
+    <p><strong>آدرس کامل فروشنده: </strong>{{ seller.address }}</p>
 {% endblock content %}
