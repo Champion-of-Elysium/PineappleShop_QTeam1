@@ -1,30 +1,30 @@
+{% endblock content %}
+
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block title %}لیست فروشندگان{% endblock title %}
 
-
 {% block content %}
-<h1>List of sellers</h1>
+<h1>لیست فروشندگان</h1>
 <table>
   <thead>
     <tr>
-      <th>Sellers Name</th>
-      <th>Certificate Code</th>
-      <th>20 Characters from Sellers Address</th>
+      <th>نام آناناس فروشان</th>
+      <th>کد گواهی کسب</th>
+      <th>۲۰ کاراکتر از آدرس فروشندگان</th>
     </tr>
   </thead>
   <tbody>
     {% for seller in sellers %}
     <tr>
-      <td>{{ seller.name }}</td>
+      <td>{{ seller.name }</td>
       <td>{{ seller.certificate_code }}</td>
-      <td>{{ seller.address|slice:":20"  }}</td>
+      <td>{{ seller.address|slice:":20" }}</td>
     </tr>
     {% empty %}
     <tr>
-      <td colspan="3">هیج فروشنده ای وجود ندارد.</td>
+      <td colspan="3">فروشنده ای موجود نیست.</td>
     </tr>
     {% endfor %}
   </tbody>

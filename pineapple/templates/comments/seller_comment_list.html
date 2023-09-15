@@ -1,38 +1,30 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block title %}لیست نظرات فروشنده{% endblock title %}
 
-<!-- Add your Content Here -->
 {% block content %}
-
-
-
+<h1>لیست نظرات فروشنده</h1>
 <table>
-    <thead>
-        
-        <tr>
-            <th>Name</th>
-            <th>seller name</th>
-            <th>text</th>
-        </tr>
-    </thead>
-    
-    <tbody>
-        
-        {%for comment in comments %}
-            <tr>
-                <td>{{comment.name}}</td>
-                <td>{{seller.name}}</td>
-                <td>{{comment.text}}</td>
-
-            </tr>
-            
-        {%endfor%}
-    </tbody>        
-</table> 
-
-   
-
+  <thead>
+    <tr>
+      <th>نام کامنت گذار</th>
+      <th>نام فروشنده</th>
+      <th>متن کامنت</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for comment in comments %}
+    <tr>
+      <td>{{ comment.name }}</td>
+      <td>{{ seller.name }}</td>
+      <td>{{ comment.text }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="3">نظری موجود نیست.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock content %}

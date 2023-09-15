@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block title %}صفحه‌ی داخلی آناناس{% endblock title %}
 
-
 {% block content %}
-    <li>{{pineapple}} , {{pineapple.seller.certificate_code}}</li>
+    <h1>صفحه‌ی داخلی آناناس</h1>
+    <p><strong>قیمت هر آناناس: </strong>{{ pineapple }}</p>
+    <p><strong>کد گواهی فروشنده‌ی این آناناس: </strong>{{ pineapple.seller.certificate_code }}</p>
 {% endblock content %}

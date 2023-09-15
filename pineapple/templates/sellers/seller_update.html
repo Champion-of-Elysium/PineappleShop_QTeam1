@@ -12,3 +12,17 @@
   <button type="submit">Update Seller</button>
 </form>
 {% endblock content %}
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}بروزرسانی فروشنده{% endblock title %}
+
+{% block content %}
+<form method = "post">
+	<h1>بروزرسانی فروشنده</h1>
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit">بروزرسانی</button>
+</form>
+{% endblock content %}
