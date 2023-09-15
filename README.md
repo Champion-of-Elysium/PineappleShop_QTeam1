@@ -1,6 +1,5 @@
 #  Pineapple Shop 🍍
-
-Pineapple Shop is a Django project that [our team](https://bitwizards.notion.site/Introduction-9b7e50cc7d7642568d467c153025f420?pvs=4) has been working on. While the project was already built, we focused on enhancing specific aspects, including the URLs configuration (urls.py), form handling (forms.py), and template files. This README will provide an overview of these modifications and the tools we used to manage our work.
+[Pineapple Shop](https://github.com/Champion-of-Elysium/PineappleShop_QTeam1.git) is a Django project that [our team](https://bitwizards.notion.site/Introduction-9b7e50cc7d7642568d467c153025f420?pvs=4) has been working on. While the project was already built, we focused on enhancing specific aspects, including the URLs configuration (urls.py), form handling (forms.py), and template files. This README will provide an overview of these modifications and the tools we used to manage our work.
 
 ## 📚 Table of Contents
 
