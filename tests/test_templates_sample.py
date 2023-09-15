@@ -46,3 +46,17 @@ class TemplateTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'لیست خبرنامه')
         self.assertContains(response, self.subscription.phone_number)
+
+    # AH/Pineapple
+    def test_pineapple_update(self):
+        response = self.client.get(reverse('pineapple:pineapple-update'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'بروزرسانی آناناس')
+        self.assertContains(response, 'submit')
+
+    def test_pineapple_detail(self): 
+        response=self.client.get(reverse('pineapple:pineapple-detail', args=[self.pineapple.pk]))  
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'صفحه‌ی داخلی آناناس')
+        self.assertContains(response, '<strong>قیمت هر آناناس: </strong>{self.pineapple.price_toman}</p>')
+        self.assertContains(response, '<strong>کد گواهی فروشنده‌ی این آناناس: </strong>{self.pineapple.seller.certificate_code}</p>')
