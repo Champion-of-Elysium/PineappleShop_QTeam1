@@ -1,13 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-
 {% block title %}آناناس فروشی آقای زحمتکش{% endblock title %}
 
-
 {% block content %}
+<h1>آناناس فروشی آقای زحمتکش</h1>
+<table>
+  <thead>
+    <tr>
+      <th>قیمت هر آناناس</th>
+      <th>کد گواهی فروشنده‌ی این آناناس</th>
+    </tr>
+  </thead>
+  <tbody>
     {% for pineapple in pineapples %}
-        <li>{{pineapple.price_toman}} , {{pineapple.seller.certificate_code}}</li>
+    <tr>
+      <td>{{ pineapple.price_toman }}</td>
+      <td>{{ pineapple.seller.certificate_code }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="3">آناناسی موجود نیست.</td>
+    </tr>
     {% endfor %}
+  </tbody>
+</table>
 {% endblock content %}
