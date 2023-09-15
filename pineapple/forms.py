@@ -17,7 +17,6 @@ from django import forms
 from .models import *
 
 
-# AH/seller-form
 class SellerForm(forms.ModelForm):
     class Meta:
         model = Seller
@@ -36,7 +35,6 @@ class SellerForm(forms.ModelForm):
         return certificate_code
 
 
-# IDA/pineapple-form
 class PineappleForm(forms.ModelForm):
     class Meta:
         model = Pineapple
@@ -51,7 +49,6 @@ class PineappleForm(forms.ModelForm):
         return price
 
 
-# Kia/order-Form
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
@@ -64,7 +61,6 @@ class OrderForm(forms.ModelForm):
         return weight
 
 
-# AK/subscription-form
 class SubscriptionForm(forms.ModelForm):
     class Meta:
         model = Subscription
@@ -78,7 +74,7 @@ class SubscriptionForm(forms.ModelForm):
 
         return phone_number
 
-# AJ/comment-form
+
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
