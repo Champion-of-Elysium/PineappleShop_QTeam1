@@ -12,19 +12,19 @@
     <tr>
       <th>نام آناناس فروشان</th>
       <th>کد گواهی کسب</th>
-      <th>۲۰ کاراکتر از آدرس فروشندگان</th>
+      <th>بیست کاراکتر از آدرس فروشندگان</th>
     </tr>
   </thead>
   <tbody>
     {% for seller in sellers %}
     <tr>
-      <td>{{ seller.name }</td>
+      <td>{{ seller.name }}</td>
       <td>{{ seller.certificate_code }}</td>
-      <td>{{ seller.address|slice:":20" }}</td>
+      <td>{{ seller.address|slice:":20"  }}</td>
     </tr>
     {% empty %}
     <tr>
-      <td colspan="3">فروشنده ای موجود نیست.</td>
+      <td colspan="3">هیج فروشنده ای وجود ندارد.</td>
     </tr>
     {% endfor %}
   </tbody>
