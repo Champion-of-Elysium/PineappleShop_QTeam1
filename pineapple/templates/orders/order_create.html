@@ -1,16 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}
-    ثبت سفارش
-{% endblock title %}
+{% block title %}ثبت سفارش{% endblock title %}
 
 {% block content %}
-    <h1>ثبت سفارش</h1>
-
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">ثبت سفارش</button>
-    </form>
+<form method = "post">
+	<h1>ثبت سفارش جدید</h1>
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit">ثبت</button>
+</form>
 {% endblock content %}
