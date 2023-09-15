@@ -32,7 +32,7 @@ If you want to find out more about what we do, [click here.](docs/forms-document
 
 The template files play a crucial role in the visual presentation of Pineapple Shop. We focused on refining and optimizing the templates to create a cohesive and visually appealing user interface.
 
-If you want to find out more about what we do, [click here.](docs/template-document.md)
+If you want to find out more about what we do, [click here.](docs/templates-document.md)
 
 ## 🗂️ Notion
 
