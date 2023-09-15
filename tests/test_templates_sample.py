@@ -62,7 +62,7 @@ class TemplateTestCase(TestCase):
         self.assertContains(response, self.pineapple.seller.certificate_code)        
 
 
-    #AK/Order
+    # AK/Order
     def test_order_list(self):
         response = self.client.get(reverse('pineapple:order-list'))
         self.assertEqual(response.status_code, 200)
@@ -84,3 +84,22 @@ class TemplateTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response,"ثبت سفارش")
         self.assertContains(response,"submit")
+
+
+    # AJ/Comment
+    def test_comment_create(self):
+        response = self.client.get(reverse('pineapple:comment-create'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response,'افزودن یک نظر جدید برای فروشنده')
+        self.assertContains(response,"submit")
+
+    def test_seller_comment_list(self):
+        response = self.client.get(reverse('pineapple:seller-comment-list',args=[self.seller.certificate_code]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response,'لیست نظرات فروشنده')
+        self.assertContains(response,self.comment.seller.name)
+        self.assertContains(response,self.comment.text)
+        self.assertContains(response,self.comment.name)
+    
+
+
